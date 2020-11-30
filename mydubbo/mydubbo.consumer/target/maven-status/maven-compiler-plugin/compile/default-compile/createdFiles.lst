@@ -1,0 +1,4 @@
+cn\accp\service\impl\FilmServiceImpl.class
+cn\accp\MyConsumerApp.class
+cn\accp\service\FilmService.class
+cn\accp\controller\FilmController.class
