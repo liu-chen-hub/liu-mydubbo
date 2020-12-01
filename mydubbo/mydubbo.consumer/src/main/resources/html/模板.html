@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>小黑记事本</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+  </head>
+
+  <body>
+  <div id="app">
+    <!-- 主体区域 -->
+    <section id="todoapp">
+      <!-- 输入框 -->
+      <header class="header">
+        <h1>小黑记事本</h1>
+        <input
+          autofocus="autofocus"
+          autocomplete="off"
+          placeholder="请输入任务"
+          class="new-todo"
+          v-model="msg"
+          @keyup.enter="add"
+        />
+      </header>
+      <!-- 列表区域 -->
+      <section class="main">
+        <ul class="todo-list" v-for="(item,index) in person ">
+          <li class="todo">
+            <div class="view">
+              <span class="index">{{item.id}}</span> <label>{{item.name}}</label>
+              <button class="destroy"></button>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+      <!-- 统计和清空 -->
+      <footer class="footer">
+        <span class="todo-count"> <strong>1</strong> items left </span>
+        <button class="clear-completed">
+          Clear
+        </button>
+      </footer>
+    </section>
+    <!-- 底部 -->
+    <footer class="info">
+      <p>
+        <a href="http://www.itheima.com/"
+          ><img src="./img/black.png" alt=""
+        /></a>
+      </p>
+    </footer>
+
+  </div>
+  </body>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app=new Vue({
+      el:'#app',
+      data:{
+        msg:'hello',
+        person:[
+          {'id':1,'name':'要抱抱!'},
+          {'id':2,'name':'要摸摸!'},
+          {'id':3,'name':'睡觉觉!'}
+
+        ]
+
+      },
+      methods:{
+        add:function () {
+          let a=this.person.length+1;
+          this.person.push({'id':""+a+"",'name':""+this.msg+""});
+          this.msg="";
+        }
+      }
+    })
+  </script>
+</html>

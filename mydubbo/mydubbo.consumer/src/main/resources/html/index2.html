@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="age<10">
+        未成年!
+    </div>
+    <div v-else-if="age>=10 && age<=15">
+        成年!
+    </div>
+    <div v-else>
+        老年
+    </div>
+    <button @click="add">增长</button>
+</div>
+</body>
+<script type="text/javascript">
+    var app =new Vue({
+        el : '#app',
+        data:{
+            message:'hello vue!',
+            age:1
+        },
+        methods:{
+            add:function(){
+                this.age++;
+            }
+        }
+    });
+</script>
+</html>

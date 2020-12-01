@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .active{
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in names">
+            <span>{{item}}</span>
+        </li>
+    </ul>
+    <ul>
+        <li v-for="(item,index) in person" :class="{active:index==isok}" @mouseenter="add(item.id)" @mouseout="remove()">
+            <span>{{index}}**{{item.name}}**{{item.id}}</span>
+        </li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+    var app =new Vue({
+        el : '#app',
+        data:{
+            names:['a','b','c'],
+            person:[
+                {'id':1,'name':'小王'},
+                {'id':2,'name':'小李'},
+                {'id':3,'name':'小刘'}
+                ],
+            isok:-1
+        },
+        methods:{
+            add:function (id) {
+                this.isok=id-1;
+            },
+            remove:function (id) {
+                this.isok=-1;
+            },
+            cli:function (id) {
+
+            }
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<body>
+
+<div id="app">
+
+        <button @click="show" v-text="msg"></button>
+        <img  src="../image/17124a3295c125f3f8_1_post.webp" height="500px" width="500" alt="">
+
+</div>
+
+</body>
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            msg:'显示',
+            msg2:'b',
+            isShow:false
+        }
+        ,
+        methods:{
+            show:function () {
+                this.isShow=!this.isShow;
+                if (this.msg=='显示'){
+                    this.msg='隐藏'
+                }
+                if (this.msg=='隐藏'){
+                    this.msg='显示'
+                }
+            }
+        }
+    });
+</script>
+</html>
